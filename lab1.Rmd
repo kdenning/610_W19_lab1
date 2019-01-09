@@ -26,8 +26,9 @@ df2<- df %>% count(screen_name) %>%
 df2 %<>% mutate(screen_name = as.factor(screen_name)) %>%  
   mutate(screen_name = fct_reorder(screen_name, n))
 
-ggplot(df2, aes(screen_name)) + 
-  geom_bar()
+ggplot(df2, aes(screen_name,n)) + 
+  geom_col() +
+  coord_flip()
 
 
 ```
