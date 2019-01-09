@@ -9,6 +9,13 @@ library(rio)
 library(here)
 library(tidyverse)
 ```
+
+```{r read and explore data}
+df <- import(here("data","rstats_tweets.rds"))
+head(df)
+str(df)
+```
+
 Commit 2
 ```{r}
 
