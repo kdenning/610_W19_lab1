@@ -28,7 +28,12 @@ Commit 3
 ```
 Commit 4
 ```{r}
+df4 <- df %>%
+  select(created_at) %>% 
+  mutate(month = lubridate::round_date(unit = "month"))
 
+
+  
 ```
 
 Commit 5
