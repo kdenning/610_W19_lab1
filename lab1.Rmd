@@ -41,12 +41,15 @@ Commit 4
 df4 <- df %>%
   select(created_at) %>% 
   mutate(month = lubridate::round_date(created_at, unit = "month")) %>% 
+  filter(month < lubridate::as_datetime("2019-01-01 00:00:00")) %>% 
   count(month)
   
-  
-plot <- ggplot(df4)
+plot4 <- ggplot(df4, aes(x = month, y = n)) + 
+  geom_line() +
+  geom_smooth()
 
-  
+plot4
+
 ```
 
 Commit 5
