@@ -8,6 +8,7 @@ output: html_document
 library(rio)
 library(here)
 library(tidyverse)
+library(magrittr)
 ```
 
 ```{r read and explore data}
