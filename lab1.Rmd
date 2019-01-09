@@ -19,6 +19,16 @@ str(df)
 
 Commit 2
 ```{r}
+df2<- df %>% count(screen_name) %>%
+  arrange(desc(n)) %>% 
+  slice(1:25)
+
+df2 %<>% mutate(screen_name = as.factor(screen_name)) %>%  
+  mutate(screen_name = fct_reorder(screen_name, n))
+
+ggplot(df2, aes(screen_name)) + 
+  geom_bar()
+
 
 ```
 
