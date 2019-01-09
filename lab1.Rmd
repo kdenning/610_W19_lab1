@@ -30,8 +30,11 @@ Commit 4
 ```{r}
 df4 <- df %>%
   select(created_at) %>% 
-  mutate(month = lubridate::round_date(unit = "month"))
-
+  mutate(month = lubridate::round_date(created_at, unit = "month")) %>% 
+  count(month)
+  
+  
+plot <- ggplot(df4)
 
   
 ```
