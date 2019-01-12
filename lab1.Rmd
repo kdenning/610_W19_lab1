@@ -55,5 +55,18 @@ plot4
 
 Commit 5
 ```{r}
+theme_set(theme_minimal(base_size = 16))
+knitr::opts_chunk$set(fig.width = 10, fig.height = 10) 
+plot5 <- ggplot(df4, aes(x = month, y = n)) + 
+  geom_area(fill = "cornflowerblue", alpha = 0.3) +
+  geom_line(color="gray40") +
+  geom_smooth(se=FALSE, color="magenta") +
+  labs(title= "Growth of #rstats hashtag on twitter over time", 
+       x = "Year (data summarized by month)", 
+       y = "Number of #rstats tweets",
+       caption = "Data from Mike Kearney, distributed via #tidytuesday")
+plot5
+
+  
 
 ```
