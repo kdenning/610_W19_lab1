@@ -4,11 +4,17 @@ author: "Kathryn Denning, Karlena Ochoa, Tamara Niella"
 date: "1/9/2019"
 output: html_document
 ---
-```{r loading libraries, include=FALSE}
+```{r setup, echo = FALSE, warning = FALSE, message=FALSE, error=FALSE}
+
 library(rio)
 library(here)
 library(tidyverse)
 library(magrittr)
+
+# setting global options: 
+
+knitr::opts_chunk$set()
+
 ```
 
 ```{r read and explore data}
@@ -17,8 +23,8 @@ head(df)
 str(df)
 ```
 
-Commit 2
-```{r}
+Commits 2 & 3
+```{r fig.width=10, fig.height=10}
 df2<- df %>% count(screen_name) %>%
   arrange(desc(n)) %>% 
   slice(1:25)
@@ -27,16 +33,18 @@ df2 %<>% mutate(screen_name = as.factor(screen_name)) %>%
   mutate(screen_name = fct_reorder(screen_name, n))
 
 ggplot(df2, aes(screen_name,n)) + 
-  geom_col() +
-  coord_flip()
+  geom_col(fill= "cornflowerblue") +
+  coord_flip()+
+  labs(title= "Most prolific #rstats tweeters", 
+       subtitle = "Top 25 screen names displayed", 
+       x = "Twitter Screen Name", y = "Count", caption= "Data from Mike Kearny, distributed via #tidytuesday")+
+  theme_minimal(base_size = 15)
+  
 
 
 ```
 
-Commit 3
-```{r}
 
-```
 Commit 4
 ```{r}
 df4 <- df %>%
